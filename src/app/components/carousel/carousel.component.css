@@ -1,0 +1,12 @@
+.carousel-inner {
+  background: darkgray;
+  margin-top: 10%;
+  width: initial;
+  height: initial;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: relative;
+}
+

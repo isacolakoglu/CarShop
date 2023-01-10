@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
+      <i class="fa-solid fa-car"></i>
+      BuyRent CarShop
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <i class="fa-thin fa-cars"></i>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Anasayfa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cars/category/0">Araçlar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">İletişim</a>
+        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" type="button" (click)="createCar()">1.deneme</a>-->
+<!--        </li>-->
+        <li *ngIf="isAdmin" class="nav-item">
+          <a class="nav-link" routerLink="/uyeol">İlan Ver</a>
+        </li>
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a class="nav-link" routerLink="/cars/create">İlan Ver</a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a class="nav-link" routerLink="/categories/create">Kategori Oluştur</a>
+        </li>
+
+      </ul>
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-outline-info" type="button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <form *ngIf="!isAuthenticated" class="d-flex ms-2">
+        <button  class="btn btn-outline-info" type="button" routerLink="/uyeol">
+          <i class="fa-solid fa-user"></i>
+          <a>
+            Giriş
+          </a>
+        </button>
+      </form>
+
+      <form *ngIf="!isAuthenticated" class="d-flex ms-2">
+        <button class="btn btn-outline-info" type="button" routerLink="/uyeol">
+          <i class="fa-solid fa-user-plus"></i>
+          <a>
+            Üye Ol
+          </a>
+        </button>
+      </form>
+
+      <form *ngIf="isAuthenticated" class="d-flex ms-2">
+        <button (click)="logout()" class="btn btn-outline-info" type="button" routerLink="/">
+          <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
+          <a>
+            Logout
+          </a>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

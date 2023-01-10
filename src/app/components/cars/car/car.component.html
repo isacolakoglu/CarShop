@@ -1,0 +1,93 @@
+<div class="container" *ngIf="car else noCar">
+  <div class="row mt-5">
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          {{ car.name }}
+        </div>
+        <div class="panel-body">
+          <img src="/assets/{{car.imageUrl}}"
+               class="img-responsive"
+               style="width:100%" alt="Image">
+        </div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-4">
+      <ul class="price">
+        <h1> {{car.price}} TL</h1>
+      </ul>
+
+      <table id="customers" class="mt-3" >
+        <tr>
+          <th>BuyRentCar.com</th>
+          <th>Açıklamalar</th>
+        </tr>
+        <tr>
+          <td> Marka </td>
+          <td> {{ car.name }}</td>
+        </tr>
+        <tr>
+          <td> Model </td>
+          <td> {{ car.model }}  </td>
+        </tr>
+        <tr>
+          <td> Yıl </td>
+          <td> {{ car.year }}  </td>
+        </tr>
+        <tr>
+          <td> KM </td>
+          <td> {{ car.km }}  </td>
+        </tr>
+        <tr>
+          <td> Motor Gücü </td>
+          <td> {{ car.engine_power }}  </td>
+        </tr>
+        <tr>
+          <td> Motor Hacmi </td>
+          <td> {{ car.engine_volume }}  </td>
+        </tr>
+        <tr>
+          <td> Renk </td>
+          <td> {{ car.color }}  </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <p class="card-text" [innerHTML]="car.description"> </p>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<!--<div class="card mb-3 p-1" *ngIf="car else noCar">-->
+<!--  <div class="row">-->
+<!--    <div class="col-3">-->
+<!--      <img src="/assets/{{ car.imageUrl }}" alt="" class="img-fluid rounded-start">-->
+<!--    </div>-->
+<!--    <div class="col-9">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">{{ car.name }}</h5>-->
+<!--        <p class="cart-text">{{ car.description }}</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<ng-template #noCar>
+  <div class="alert alert-warning">
+    No CarModel
+  </div>
+</ng-template>
